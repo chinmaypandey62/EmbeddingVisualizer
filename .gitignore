@@ -16,3 +16,6 @@ ENV/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Streamlit secrets (contains API keys)
+.streamlit/secrets.toml

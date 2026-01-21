@@ -50,11 +50,11 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Add CORS middleware
+# Add CORS middleware - allow all origins for Streamlit Cloud compatibility
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=CORS_ORIGINS,
-    allow_credentials=True,
+    allow_origins=["*"],  # Allow all origins for public API
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )

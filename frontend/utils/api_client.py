@@ -1,12 +1,16 @@
 """
 API client for communicating with the FastAPI backend.
 """
+import os
 import requests
 from typing import Optional, Dict, Any, List
 import streamlit as st
 
-# Backend API URL
-API_BASE_URL = "http://127.0.0.1:8000/api"
+# Backend API URL - can be configured via environment variable or Streamlit secrets
+API_BASE_URL = os.getenv(
+    "API_BASE_URL",
+    st.secrets.get("API_BASE_URL", "http://127.0.0.1:8000/api") if hasattr(st, 'secrets') else "http://127.0.0.1:8000/api"
+)
 
 
 class APIClient:
